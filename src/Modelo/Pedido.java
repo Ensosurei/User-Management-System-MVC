@@ -1,0 +1,123 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
+
+/**
+ *
+ * @author dntva
+ */
+import java.sql.Date;
+
+public class Pedido implements imprimible {
+    private int idPedido;
+    private String codigo;
+    private String estadoEnvio;
+    private String metodoPago;
+    private String fechaPedido;
+    private float total;
+    private int cantidadProducto;
+    private int status;
+
+    // Constructor vacío
+    public Pedido() {
+        this.codigo = "";
+        this.estadoEnvio = "pendiente";
+        this.metodoPago = "";
+        this.fechaPedido = "";
+        this.total = 0.0f;
+        this.cantidadProducto = 0;
+        this.status = 0;
+    }
+
+    // Constructor completo
+    public Pedido(String codigo, String estadoEnvio, String metodoPago, String fechaPedido, float total, int cantidadProducto, int status) {
+        this.codigo = codigo;
+        this.estadoEnvio = estadoEnvio;
+        this.metodoPago = metodoPago;
+        this.fechaPedido = fechaPedido;
+        this.total = total;
+        this.cantidadProducto = cantidadProducto;
+        this.status = status;
+    }
+
+    // Getters y Setters
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getEstadoEnvio() {
+        return estadoEnvio;
+    }
+
+    public void setEstadoEnvio(String estadoEnvio) {
+        this.estadoEnvio = estadoEnvio;
+    }
+
+    public String getMetodoPago() {
+        return metodoPago;
+    }
+
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
+    }
+
+    public String getFechaPedido() {
+        return fechaPedido;
+    }
+
+    public void setFechaPedido(String fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public int getCantidadProducto() {
+        return cantidadProducto;
+    }
+
+    public void setCantidadProducto(int cantidadProducto) {
+        this.cantidadProducto = cantidadProducto;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    // Método imprimir
+    @Override
+    public void imprimir() {
+        System.out.println("ID Pedido: " + idPedido);
+        System.out.println("Código: " + codigo);
+        System.out.println("Estado de envío: " + estadoEnvio);
+        System.out.println("Método de pago: " + metodoPago);
+        System.out.println("Fecha del pedido: " + fechaPedido);
+        System.out.println("Total: " + total);
+        System.out.println("Cantidad de productos: " + cantidadProducto);
+        System.out.println("Status: " + status);
+    }
+}
+
