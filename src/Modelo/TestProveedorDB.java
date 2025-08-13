@@ -7,7 +7,9 @@ package Modelo;
 /**
  *
  * @author dntva
- */public class TestProveedorDB {
+ */
+
+    public class TestProveedorDB {
     public static void main(String[] args) {
         
         ProveedorDB db = new ProveedorDB();
