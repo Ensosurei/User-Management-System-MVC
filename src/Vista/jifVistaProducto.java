@@ -41,7 +41,6 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         txtPrecio = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cmbCategoria = new javax.swing.JComboBox<>();
-        btnSubir = new javax.swing.JButton();
         txtDescripcion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
@@ -157,20 +156,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(cmbCategoria);
-        cmbCategoria.setBounds(20, 230, 350, 42);
-
-        btnSubir.setBackground(new java.awt.Color(213, 247, 197));
-        btnSubir.setFont(new java.awt.Font("Britannic Bold", 0, 36)); // NOI18N
-        btnSubir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/add.png"))); // NOI18N
-        btnSubir.setText("Subir");
-        btnSubir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSubir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSubir);
-        btnSubir.setBounds(390, 210, 160, 60);
+        cmbCategoria.setBounds(20, 230, 530, 42);
 
         txtDescripcion.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
         txtDescripcion.setEnabled(false);
@@ -334,10 +320,6 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoriaActionPerformed
 
-    private void btnSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSubirActionPerformed
-
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
@@ -391,7 +373,6 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;
-    public javax.swing.JButton btnSubir;
     public javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
