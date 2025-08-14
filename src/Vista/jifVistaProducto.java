@@ -44,7 +44,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         txtDescripcion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        txtProducto1 = new javax.swing.JTextField();
+        txtFolio = new javax.swing.JTextField();
         btnNuevo = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
@@ -185,14 +185,14 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         jPanel2.add(btnBuscar);
         btnBuscar.setBounds(220, 40, 38, 38);
 
-        txtProducto1.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        txtProducto1.addActionListener(new java.awt.event.ActionListener() {
+        txtFolio.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtFolio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProducto1ActionPerformed(evt);
+                txtFolioActionPerformed(evt);
             }
         });
-        jPanel2.add(txtProducto1);
-        txtProducto1.setBounds(20, 40, 190, 32);
+        jPanel2.add(txtFolio);
+        txtFolio.setBounds(20, 40, 190, 32);
 
         btnNuevo.setBackground(new java.awt.Color(213, 247, 197));
         btnNuevo.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -336,9 +336,9 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void txtProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProducto1ActionPerformed
+    private void txtFolioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFolioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProducto1ActionPerformed
+    }//GEN-LAST:event_txtFolioActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
@@ -389,9 +389,9 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
     public javax.swing.JTable tblProducto;
     public javax.swing.JTable tblProveedor;
     public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextField txtFolio;
     public javax.swing.JTextField txtPrecio;
     public javax.swing.JTextField txtProducto;
-    public javax.swing.JTextField txtProducto1;
     public javax.swing.JTextField txtProducto2;
     public javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables

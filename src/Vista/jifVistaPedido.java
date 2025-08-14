@@ -44,7 +44,6 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         cmbPago = new javax.swing.JComboBox<>();
-        btnComprar = new javax.swing.JButton();
         btnTotal = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
@@ -170,33 +169,22 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(100, 620, 103, 24);
 
-        jLabel11.setFont(new java.awt.Font("Britannic Bold", 0, 36)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(7, 68, 46));
         jLabel11.setText("Metodo de pago");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(280, 670, 249, 40);
+        jLabel11.setBounds(100, 660, 170, 40);
 
         cmbPago.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         cmbPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta de credito", "Transferencia", "Pago contra entrega" }));
+        cmbPago.setEnabled(false);
         cmbPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbPagoActionPerformed(evt);
             }
         });
         jPanel1.add(cmbPago);
-        cmbPago.setBounds(120, 730, 440, 30);
-
-        btnComprar.setBackground(new java.awt.Color(213, 247, 197));
-        btnComprar.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        btnComprar.setText("COMPRAR");
-        btnComprar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnComprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnComprar);
-        btnComprar.setBounds(580, 730, 100, 30);
+        cmbPago.setBounds(280, 670, 230, 30);
 
         btnTotal.setBackground(new java.awt.Color(213, 247, 197));
         btnTotal.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -333,7 +321,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblPedido);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(120, 780, 570, 142);
+        jScrollPane2.setBounds(120, 720, 570, 142);
 
         btnBorrar.setBackground(new java.awt.Color(213, 247, 197));
         btnBorrar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -358,7 +346,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(210, 940, 150, 40);
+        btnCancelar.setBounds(210, 880, 150, 40);
 
         btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
         btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -371,7 +359,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCerrar);
-        btnCerrar.setBounds(440, 940, 150, 40);
+        btnCerrar.setBounds(440, 880, 150, 40);
 
         btnNuevo.setBackground(new java.awt.Color(213, 247, 197));
         btnNuevo.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -403,7 +391,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1032, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
         );
 
         pack();
@@ -420,10 +408,6 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
     private void cmbPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPagoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbPagoActionPerformed
-
-    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnComprarActionPerformed
 
     private void btnTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalActionPerformed
         // TODO add your handling code here:
@@ -492,7 +476,6 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnBuscarUsuario;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCerrar;
-    public javax.swing.JButton btnComprar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;
     public javax.swing.JButton btnTotal;
