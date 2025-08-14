@@ -45,7 +45,6 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         cmbPago = new javax.swing.JComboBox<>();
         btnComprar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
@@ -60,6 +59,8 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPedido = new javax.swing.JTable();
         btnBorrar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         tblProveedor.setBackground(new java.awt.Color(46, 157, 137));
         tblProveedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -181,7 +182,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(cmbPago);
-        cmbPago.setBounds(90, 670, 282, 30);
+        cmbPago.setBounds(100, 680, 440, 30);
 
         btnComprar.setBackground(new java.awt.Color(213, 247, 197));
         btnComprar.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
@@ -193,19 +194,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnComprar);
-        btnComprar.setBounds(420, 670, 100, 30);
-
-        btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
-        btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        btnCancelar.setText("CANCELAR");
-        btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(560, 670, 100, 30);
+        btnComprar.setBounds(560, 680, 100, 30);
 
         btnNuevo.setBackground(new java.awt.Color(213, 247, 197));
         btnNuevo.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -341,7 +330,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblPedido);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(90, 720, 570, 142);
+        jScrollPane2.setBounds(100, 730, 570, 142);
 
         btnBorrar.setBackground(new java.awt.Color(213, 247, 197));
         btnBorrar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -355,6 +344,32 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jPanel1.add(btnBorrar);
         btnBorrar.setBounds(580, 390, 80, 70);
 
+        btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(190, 890, 150, 40);
+
+        btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(420, 890, 150, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -363,7 +378,9 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -384,10 +401,6 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnComprarActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
@@ -433,12 +446,21 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBorrar;
     public javax.swing.JButton btnBuscarProducto;
     public javax.swing.JButton btnBuscarUsuario;
     public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnComprar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;

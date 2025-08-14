@@ -53,6 +53,8 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
+        btnCancelar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(7, 68, 46));
@@ -278,6 +280,32 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(100, 470, 590, 142);
 
+        btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(220, 630, 150, 40);
+
+        btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(450, 630, 150, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -346,11 +374,21 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProducto2ActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBorrar;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnBuscarProducto;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;
     public javax.swing.JButton btnSubir;
