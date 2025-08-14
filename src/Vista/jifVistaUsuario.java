@@ -26,83 +26,235 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtNombre = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtApellidos = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
         cmbCiudad = new javax.swing.JComboBox<>();
-        btnGuardar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(null);
-
-        jPanel1.setBackground(new java.awt.Color(183, 168, 113));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel1.setText("Bienvenido Usuario!");
+        jLabel8 = new javax.swing.JLabel();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
+        btnBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCliente = new javax.swing.JTable();
+        txtNombres = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        btnNuevo = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         txtNombre.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtNombre.setEnabled(false);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel2.setText("Nombre(s)");
-
-        jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel3.setText("Correo");
-
-        jLabel4.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel4.setText("Usuario");
-
-        jLabel5.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel5.setText("Ciudad");
-
-        jLabel6.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel6.setText("Telefono");
-
         txtApellidos.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtApellidos.setEnabled(false);
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(null);
+
+        jPanel1.setBackground(new java.awt.Color(183, 168, 113));
+        jPanel1.setLayout(null);
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel1.setText("Bienvenido Usuario!");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(167, 18, 441, 48);
+
+        jLabel2.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel2.setText("Nombre(s)");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(53, 196, 118, 24);
+
+        jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel3.setText("Correo");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(53, 296, 77, 24);
+
+        jLabel4.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel4.setText("Usuario");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(50, 150, 88, 24);
+
+        jLabel5.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel5.setText("Ciudad");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(53, 395, 79, 24);
+
+        jLabel6.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel6.setText("Telefono");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(53, 345, 97, 24);
+
+        txtApellido.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtApellido.setEnabled(false);
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtApellido);
+        txtApellido.setBounds(222, 246, 276, 32);
+
         txtCorreo.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtCorreo.setEnabled(false);
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCorreo);
+        txtCorreo.setBounds(222, 296, 276, 32);
+
+        cmbCiudad.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
+        cmbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ahome", "Angostura", "Badiraguato", "Choix", "Concordia", "Cosalá", "Culiacán", "Eldorado", "El Fuerte", "Elota", "Escuinapa", "Guasave", "Juan José Ríos", "Mazatlán", "Mocorito", "Navolato", "Rosario", "Salvador Alvarado", "San Ignacio", "Sinaloa" }));
+        cmbCiudad.setEnabled(false);
+        jPanel1.add(cmbCiudad);
+        cmbCiudad.setBounds(222, 395, 217, 33);
+
+        btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(420, 660, 150, 40);
+
+        btnBorrar.setBackground(new java.awt.Color(213, 247, 197));
+        btnBorrar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
+        btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/borrar.png"))); // NOI18N
+        btnBorrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBorrar);
+        btnBorrar.setBounds(635, 322, 80, 70);
+
+        txtUsuario.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUsuario);
+        txtUsuario.setBounds(220, 150, 276, 32);
+
+        jLabel7.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel7.setText("Apellido(s)");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(53, 246, 122, 24);
+
+        jLabel8.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel8.setText("Fecha");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(53, 110, 67, 24);
+
+        jdcFecha.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        jPanel1.add(jdcFecha);
+        jdcFecha.setBounds(222, 101, 187, 33);
+
+        btnBuscar.setBackground(new java.awt.Color(213, 247, 197));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/search.png"))); // NOI18N
+        btnBuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscar);
+        btnBuscar.setBounds(510, 140, 38, 38);
+
+        tblCliente.setBackground(new java.awt.Color(46, 157, 137));
+        tblCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblCliente.setToolTipText("");
+        jScrollPane1.setViewportView(tblCliente);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(94, 506, 590, 142);
+
+        txtNombres.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtNombres.setEnabled(false);
+        txtNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombresActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNombres);
+        txtNombres.setBounds(222, 196, 276, 32);
 
         txtTelefono.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        txtTelefono.setEnabled(false);
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtTelefono);
+        txtTelefono.setBounds(222, 345, 276, 32);
 
-        cmbCiudad.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
-        cmbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ahome", "Angostura", "Badiraguato", "Choix", "Concordia", "Cosalá", "Culiacán", "Eldorado", "El Fuerte", "Elota", "Escuinapa", "Guasave", "Juan José Ríos", "Mazatlán", "Mocorito", "Navolato", "Rosario", "Salvador Alvarado", "San Ignacio", "Sinaloa" }));
+        btnNuevo.setBackground(new java.awt.Color(213, 247, 197));
+        btnNuevo.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/add.png"))); // NOI18N
+        btnNuevo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNuevo);
+        btnNuevo.setBounds(635, 95, 80, 70);
+
+        jLabel9.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel9.setText("Ahora eres parte de este proyecto!");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(188, 470, 399, 24);
 
         btnGuardar.setBackground(new java.awt.Color(213, 247, 197));
         btnGuardar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -113,100 +265,21 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnGuardar);
+        btnGuardar.setBounds(635, 208, 80, 70);
 
-        btnLimpiar.setBackground(new java.awt.Color(213, 247, 197));
-        btnLimpiar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
-        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/limpiar.png"))); // NOI18N
-        btnLimpiar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
+        btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-
-        txtUsuario.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel7.setText("Apellido(s)");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(190, 660, 150, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,13 +287,13 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -235,30 +308,58 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
 
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombresActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnBorrar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCerrar;
     public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnNuevo;
     public javax.swing.JComboBox<String> cmbCiudad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -267,10 +368,17 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public com.toedter.calendar.JDateChooser jdcFecha;
+    public javax.swing.JTable tblCliente;
+    public javax.swing.JTextField txtApellido;
     public javax.swing.JTextField txtApellidos;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtNombres;
     public javax.swing.JTextField txtTelefono;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
