@@ -26,21 +26,133 @@ public class jDigMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jimSalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jimRegistrarUsuario = new javax.swing.JMenuItem();
+        jimRegistrarProveedor = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jimPedido = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jimProducto = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(183, 168, 113));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 756, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 658, Short.MAX_VALUE)
+        );
+
+        jMenuBar1.setBackground(new java.awt.Color(51, 255, 51));
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/home.png"))); // NOI18N
+        jMenu1.setText("Inicio");
+
+        jimSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jimSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
+        jimSalir.setText("Salir");
+        jimSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jimSalir);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/registrar.png"))); // NOI18N
+        jMenu2.setText("Registrarse");
+
+        jimRegistrarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jimRegistrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/new user.png"))); // NOI18N
+        jimRegistrarUsuario.setText("Usuario");
+        jimRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimRegistrarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jimRegistrarUsuario);
+
+        jimRegistrarProveedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jimRegistrarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/proveedor.png"))); // NOI18N
+        jimRegistrarProveedor.setText("Proveedor");
+        jimRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimRegistrarProveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jimRegistrarProveedor);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
+        jMenu3.setText("Usuarios");
+
+        jimPedido.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jimPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/carrito.png"))); // NOI18N
+        jimPedido.setText("Pedido");
+        jimPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimPedidoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jimPedido);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/proveedor.png"))); // NOI18N
+        jMenu4.setText("Proveedores");
+
+        jimProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jimProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/producto.png"))); // NOI18N
+        jimProducto.setText("Producto");
+        jMenu4.add(jimProducto);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jimRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimRegistrarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jimRegistrarUsuarioActionPerformed
+
+    private void jimRegistrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimRegistrarProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jimRegistrarProveedorActionPerformed
+
+    private void jimPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jimPedidoActionPerformed
+
+    private void jimSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jimSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +190,17 @@ public class jDigMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JMenuItem jimPedido;
+    private javax.swing.JMenuItem jimProducto;
+    private javax.swing.JMenuItem jimRegistrarProveedor;
+    private javax.swing.JMenuItem jimRegistrarUsuario;
+    private javax.swing.JMenuItem jimSalir;
     // End of variables declaration//GEN-END:variables
 }
