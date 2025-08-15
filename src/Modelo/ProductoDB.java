@@ -20,7 +20,7 @@ public class ProductoDB extends ManejadorDB {
 
     @Override
     public int crearTabla() {
-        this.sqlConsulta = "CREATE TABLE producto (" +
+        this.sqlConsulta = "CREATE TABLE if not exists producto (" +
             "idProducto INT AUTO_INCREMENT PRIMARY KEY," +
             "folio VARCHAR(30) NOT NULL," +
             "nombre VARCHAR(30) NOT NULL," +
@@ -60,7 +60,7 @@ public class ProductoDB extends ManejadorDB {
             this.pstm.setString(2, p.getNombre());
             this.pstm.setFloat(3, p.getPrecio());
             this.pstm.setString(4, p.getDescripcion());
-            this.pstm.setDate(5, Date.valueOf(p.getFecha()));
+            this.pstm.setString(5, p.getFecha());
             this.pstm.setString(6, p.getCategoria());
             this.pstm.setInt(7, p.getStatus());
 
@@ -87,7 +87,7 @@ public class ProductoDB extends ManejadorDB {
             this.pstm.setString(1, p.getNombre());
             this.pstm.setFloat(2, p.getPrecio());
             this.pstm.setString(3, p.getDescripcion());
-            this.pstm.setDate(4, Date.valueOf(p.getFecha()));
+            this.pstm.setString(4, p.getFecha());
             this.pstm.setString(5, p.getCategoria());
             this.pstm.setString(6, p.getFolio());
 
@@ -159,7 +159,7 @@ public class ProductoDB extends ManejadorDB {
                 p.setNombre(registros.getString("nombre"));
                 p.setPrecio(registros.getFloat("precio"));
                 p.setDescripcion(registros.getString("descripcion"));
-                p.setFecha(registros.getDate("fecha").toString());
+                p.setFecha(registros.getString("fecha"));
                 p.setCategoria(registros.getString("categoria"));
                 p.setStatus(registros.getInt("status"));
             } else {
@@ -205,6 +205,7 @@ public class ProductoDB extends ManejadorDB {
     public DefaultTableModel mostrarTabla() {
         DefaultTableModel modelo = new DefaultTableModel();
         ProductoDB db = new ProductoDB() {};
+        db.crearTabla();
         ResultSet reg = db.todos(0);
 
         try {

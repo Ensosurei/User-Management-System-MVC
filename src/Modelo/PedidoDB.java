@@ -17,7 +17,7 @@ public class PedidoDB extends ManejadorDB {
 
     @Override
     public int crearTabla() {
-        this.sqlConsulta = "CREATE TABLE pedido (" +
+        this.sqlConsulta = "CREATE TABLE if not exists pedido (" +
             "idPedido INT AUTO_INCREMENT PRIMARY KEY," +
             "codigo VARCHAR(30)," +
             "estado_envio VARCHAR(10) DEFAULT 'pendiente'," +
@@ -25,7 +25,10 @@ public class PedidoDB extends ManejadorDB {
             "fecha_pedido DATE," +
             "total FLOAT," +
             "cantidadProducto INT," +
-            "status INT DEFAULT 0" +
+            "direccion varchar(30)," +
+            "status INT DEFAULT 0, " +
+            "usuario varchar(30)," +
+            "folio_producto varchar(30)" +    
         ");";
 
         int fila = 0;
@@ -48,7 +51,7 @@ public class PedidoDB extends ManejadorDB {
 
         int fila = 0;
         Pedido p = (Pedido) obj;
-        this.sqlConsulta = "INSERT INTO pedido VALUES (null, ?, ?, ?, ?, ?, ?, ?);";
+        this.sqlConsulta = "INSERT INTO pedido VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         abrir();
         try {
@@ -56,10 +59,14 @@ public class PedidoDB extends ManejadorDB {
             this.pstm.setString(1, p.getCodigo());
             this.pstm.setString(2, p.getEstadoEnvio());
             this.pstm.setString(3, p.getMetodoPago());
-            this.pstm.setDate(4, Date.valueOf(p.getFechaPedido()));
+            this.pstm.setString(4, p.getFechaPedido());
             this.pstm.setFloat(5, p.getTotal());
             this.pstm.setInt(6, p.getCantidadProducto());
-            this.pstm.setInt(7, p.getStatus());
+            this.pstm.setString(7, p.getDireccion());
+            this.pstm.setInt(8, p.getStatus());
+            this.pstm.setString(9, p.getUsuario());
+            this.pstm.setString(10, p.getFolio());
+            
 
             fila = this.pstm.executeUpdate();
             cerrar();
@@ -76,17 +83,21 @@ public class PedidoDB extends ManejadorDB {
 
         int fila = 0;
         Pedido p = (Pedido) obj;
-        this.sqlConsulta = "UPDATE pedido SET estado_envio=?, metodo_pago=?, fecha_pedido=?, total=?, cantidadProducto=? WHERE codigo=? AND status=0";
+        this.sqlConsulta = "UPDATE pedido SET estado_envio=?, metodo_pago=?, fecha_pedido=?, total=?, cantidadProducto=?, direccion=?, folio_producto=?, usuario=? WHERE codigo=? AND status=0";
 
         abrir();
         try {
             this.pstm = this.conexion.prepareStatement(this.sqlConsulta);
             this.pstm.setString(1, p.getEstadoEnvio());
             this.pstm.setString(2, p.getMetodoPago());
-            this.pstm.setDate(3, Date.valueOf(p.getFechaPedido()));
+            this.pstm.setString(3, p.getFechaPedido());
             this.pstm.setFloat(4, p.getTotal());
             this.pstm.setInt(5, p.getCantidadProducto());
-            this.pstm.setString(6, p.getCodigo());
+            this.pstm.setString(6, p.getDireccion());
+            this.pstm.setString(7, p.getFolio());
+            this.pstm.setString(8, p.getUsuario());
+            this.pstm.setString(9, p.getCodigo());
+           
 
             fila = this.pstm.executeUpdate();
             cerrar();
@@ -155,10 +166,13 @@ public class PedidoDB extends ManejadorDB {
             if (registros.next()) {
                 p.setEstadoEnvio(registros.getString("estado_envio"));
                 p.setMetodoPago(registros.getString("metodo_pago"));
-                p.setFechaPedido(registros.getDate("fecha_pedido").toString());
+                p.setFechaPedido(registros.getString("fecha_pedido"));
                 p.setTotal(registros.getFloat("total"));
                 p.setCantidadProducto(registros.getInt("cantidadProducto"));
+                p.setDireccion(registros.getString("direccion"));
                 p.setStatus(registros.getInt("status"));
+                p.setFolio(registros.getString("folio_producto"));
+                p.setUsuario(registros.getString("usuario"));
             } else {
                 p = null;
             }
@@ -202,6 +216,7 @@ public class PedidoDB extends ManejadorDB {
     public DefaultTableModel mostrarTabla() {
         DefaultTableModel modelo = new DefaultTableModel();
         PedidoDB db = new PedidoDB() {};
+        db.crearTabla();
         ResultSet reg = db.todos(0);
 
         try {

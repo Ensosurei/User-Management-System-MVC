@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
+
 package Vista;
+
 
 /**
  *
@@ -27,7 +29,6 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -45,7 +46,6 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
         tblProveedor = new javax.swing.JTable();
         txtNombres = new javax.swing.JTextField();
         txtRfc = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
@@ -54,45 +54,41 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(779, 680));
+        getContentPane().setLayout(null);
+
         jPanel1.setBackground(new java.awt.Color(183, 168, 113));
         jPanel1.setLayout(null);
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel1.setText("Bienvenido Proveedor!");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(167, 18, 480, 48);
 
         jLabel2.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(7, 68, 46));
         jLabel2.setText("Nombre(s)");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 180, 118, 24);
+        jLabel2.setBounds(60, 120, 118, 24);
 
         jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(7, 68, 46));
         jLabel3.setText("Correo");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(60, 280, 77, 24);
+        jLabel3.setBounds(60, 220, 77, 24);
 
         jLabel4.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(7, 68, 46));
         jLabel4.setText("Usuario");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 130, 88, 24);
+        jLabel4.setBounds(60, 70, 88, 24);
 
         jLabel5.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(7, 68, 46));
         jLabel5.setText("Comunidad local");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 430, 191, 24);
+        jLabel5.setBounds(60, 370, 191, 24);
 
         jLabel6.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(7, 68, 46));
         jLabel6.setText("RFC");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(60, 380, 97, 24);
+        jLabel6.setBounds(60, 320, 97, 24);
 
         txtApellido.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtApellido.setEnabled(false);
@@ -102,7 +98,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtApellido);
-        txtApellido.setBounds(230, 230, 276, 32);
+        txtApellido.setBounds(230, 170, 276, 32);
 
         txtCorreo.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtCorreo.setEnabled(false);
@@ -112,13 +108,13 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtCorreo);
-        txtCorreo.setBounds(230, 280, 276, 32);
+        txtCorreo.setBounds(230, 220, 276, 32);
 
         cmbComunidad.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
         cmbComunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cofradía", "El Habal", "El Pozole", "El Quelite", "El Recodo", "El Roble", "Mármol de Salcido", "Palmillas", "Potrerillos" }));
         cmbComunidad.setEnabled(false);
         jPanel1.add(cmbComunidad);
-        cmbComunidad.setBounds(280, 430, 230, 33);
+        cmbComunidad.setBounds(280, 370, 230, 33);
 
         btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
         btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -131,7 +127,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCerrar);
-        btnCerrar.setBounds(450, 690, 150, 40);
+        btnCerrar.setBounds(440, 510, 150, 40);
 
         txtUsuario.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -140,23 +136,23 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtUsuario);
-        txtUsuario.setBounds(230, 130, 276, 32);
+        txtUsuario.setBounds(230, 70, 276, 32);
 
         jLabel7.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(7, 68, 46));
         jLabel7.setText("Apellido(s)");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(60, 230, 122, 24);
+        jLabel7.setBounds(60, 170, 122, 24);
 
         jLabel8.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(7, 68, 46));
         jLabel8.setText("Fecha");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(60, 90, 67, 24);
+        jLabel8.setBounds(60, 30, 67, 24);
 
         jdcFecha.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         jPanel1.add(jdcFecha);
-        jdcFecha.setBounds(230, 80, 187, 33);
+        jdcFecha.setBounds(230, 20, 187, 33);
 
         tblProveedor.setBackground(new java.awt.Color(46, 157, 137));
         tblProveedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -174,7 +170,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblProveedor);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(120, 530, 590, 142);
+        jScrollPane1.setBounds(120, 420, 590, 80);
 
         txtNombres.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtNombres.setEnabled(false);
@@ -184,7 +180,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtNombres);
-        txtNombres.setBounds(230, 180, 276, 32);
+        txtNombres.setBounds(230, 120, 276, 32);
 
         txtRfc.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtRfc.setEnabled(false);
@@ -194,13 +190,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtRfc);
-        txtRfc.setBounds(230, 380, 276, 32);
-
-        jLabel9.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel9.setText("Ahora eres parte de este proyecto!");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(210, 500, 399, 24);
+        txtRfc.setBounds(230, 320, 276, 32);
 
         btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
         btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -213,13 +203,13 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(220, 690, 150, 40);
+        btnCancelar.setBounds(210, 510, 150, 40);
 
         jLabel10.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(7, 68, 46));
         jLabel10.setText("Telefono");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(60, 330, 97, 24);
+        jLabel10.setBounds(60, 270, 97, 24);
 
         txtTelefono.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtTelefono.setEnabled(false);
@@ -229,19 +219,20 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtTelefono);
-        txtTelefono.setBounds(230, 330, 276, 32);
+        txtTelefono.setBounds(230, 270, 276, 32);
 
         btnBorrar.setBackground(new java.awt.Color(213, 247, 197));
         btnBorrar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
         btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/borrar.png"))); // NOI18N
         btnBorrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBorrar.setEnabled(false);
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarActionPerformed(evt);
             }
         });
         jPanel1.add(btnBorrar);
-        btnBorrar.setBounds(640, 310, 80, 70);
+        btnBorrar.setBounds(600, 240, 80, 70);
 
         btnBuscar.setBackground(new java.awt.Color(213, 247, 197));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/search.png"))); // NOI18N
@@ -252,7 +243,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnBuscar);
-        btnBuscar.setBounds(520, 130, 38, 38);
+        btnBuscar.setBounds(520, 70, 38, 38);
 
         btnNuevo.setBackground(new java.awt.Color(213, 247, 197));
         btnNuevo.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -264,30 +255,23 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnNuevo);
-        btnNuevo.setBounds(640, 100, 80, 70);
+        btnNuevo.setBounds(600, 30, 80, 70);
 
         btnGuardar.setBackground(new java.awt.Color(213, 247, 197));
         btnGuardar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/save.png"))); // NOI18N
         btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardar.setEnabled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
         jPanel1.add(btnGuardar);
-        btnGuardar.setBounds(640, 200, 80, 70);
+        btnGuardar.setBounds(600, 130, 80, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(-3, 0, 770, 574);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -349,7 +333,6 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnNuevo;
     public javax.swing.JComboBox<String> cmbComunidad;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -358,7 +341,6 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public com.toedter.calendar.JDateChooser jdcFecha;

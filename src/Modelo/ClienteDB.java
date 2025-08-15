@@ -208,6 +208,7 @@ public class ClienteDB extends ManejadorDB {
     public DefaultTableModel mostrarTabla() {
         DefaultTableModel modelo = new DefaultTableModel();
         ClienteDB db = new ClienteDB();
+        db.crearTabla();
         ResultSet reg = db.todos(0);
 
         try {

@@ -32,7 +32,6 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProveedor = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
@@ -54,6 +53,8 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         tblProducto = new javax.swing.JTable();
         btnCancelar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
 
         jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(7, 68, 46));
@@ -92,13 +93,6 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(183, 168, 113));
         jPanel1.setLayout(null);
-
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Britannic Bold", 0, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel8.setText("Subir Producto");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(230, 20, 321, 48);
 
         jPanel2.setBackground(new java.awt.Color(46, 157, 137));
         jPanel2.setLayout(null);
@@ -156,7 +150,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(cmbCategoria);
-        cmbCategoria.setBounds(20, 230, 530, 42);
+        cmbCategoria.setBounds(20, 230, 480, 42);
 
         txtDescripcion.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
         txtDescripcion.setEnabled(false);
@@ -166,7 +160,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(txtDescripcion);
-        txtDescripcion.setBounds(280, 40, 274, 150);
+        txtDescripcion.setBounds(280, 40, 220, 150);
 
         jLabel3.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(7, 68, 46));
@@ -204,7 +198,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnNuevo);
-        btnNuevo.setBounds(600, 10, 80, 70);
+        btnNuevo.setBounds(540, 10, 80, 70);
 
         btnGuardar.setBackground(new java.awt.Color(213, 247, 197));
         btnGuardar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -216,7 +210,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnGuardar);
-        btnGuardar.setBounds(600, 120, 80, 70);
+        btnGuardar.setBounds(540, 120, 80, 70);
 
         btnBorrar.setBackground(new java.awt.Color(213, 247, 197));
         btnBorrar.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
@@ -228,7 +222,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnBorrar);
-        btnBorrar.setBounds(600, 230, 80, 70);
+        btnBorrar.setBounds(540, 220, 80, 70);
 
         txtProducto2.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
         txtProducto2.addActionListener(new java.awt.event.ActionListener() {
@@ -240,13 +234,13 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         txtProducto2.setBounds(20, 40, 190, 32);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(30, 120, 720, 310);
+        jPanel2.setBounds(30, 60, 670, 310);
 
         jLabel2.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(7, 68, 46));
         jLabel2.setText("Este es el inicio de tu venta!");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 90, 310, 24);
+        jLabel2.setBounds(30, 30, 310, 24);
 
         tblProducto.setBackground(new java.awt.Color(46, 157, 137));
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
@@ -264,7 +258,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tblProducto);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(100, 470, 590, 142);
+        jScrollPane2.setBounds(100, 410, 590, 80);
 
         btnCancelar.setBackground(new java.awt.Color(213, 247, 197));
         btnCancelar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -277,7 +271,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(220, 630, 150, 40);
+        btnCancelar.setBounds(210, 510, 150, 40);
 
         btnCerrar.setBackground(new java.awt.Color(213, 247, 197));
         btnCerrar.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
@@ -290,19 +284,27 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnCerrar);
-        btnCerrar.setBounds(450, 630, 150, 40);
+        btnCerrar.setBounds(450, 510, 150, 40);
+
+        jLabel9.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(7, 68, 46));
+        jLabel9.setText("Fecha");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(420, 20, 67, 24);
+
+        jdcFecha.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
+        jPanel1.add(jdcFecha);
+        jdcFecha.setBounds(500, 20, 187, 33);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -381,11 +383,12 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    public com.toedter.calendar.JDateChooser jdcFecha;
     public javax.swing.JTable tblProducto;
     public javax.swing.JTable tblProveedor;
     public javax.swing.JTextField txtDescripcion;

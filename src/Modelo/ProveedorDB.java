@@ -11,19 +11,20 @@ package Modelo;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
- class ProveedorDB extends ManejadorDB {
+ public class ProveedorDB extends ManejadorDB {
 
     public ProveedorDB() {}
 
     @Override
     public int crearTabla() {
-        this.sqlConsulta = "CREATE TABLE proveedor (" +
+        this.sqlConsulta = "CREATE TABLE  if not exists proveedor (" +
             "idProveedor INT AUTO_INCREMENT PRIMARY KEY," +
             "Usuario VARCHAR(30)," +
             "RFC VARCHAR(20) NOT NULL," +
             "nombre VARCHAR(30) NOT NULL," +
             "apellido VARCHAR(30) NOT NULL," +
             "correo VARCHAR(30) NOT NULL," +
+            "telefono VARCHAR(30) NOT NULL," +
             "fecha DATE," +
             "localizacion VARCHAR(30)," +
             "status INT DEFAULT 0" +
@@ -49,7 +50,7 @@ import javax.swing.table.DefaultTableModel;
 
         int fila = 0;
         Proveedor p = (Proveedor) obj;
-        this.sqlConsulta = "INSERT INTO proveedor VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?);";
+        this.sqlConsulta = "INSERT INTO proveedor VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         abrir();
         try {
@@ -59,9 +60,10 @@ import javax.swing.table.DefaultTableModel;
             this.pstm.setString(3, p.getNombre());
             this.pstm.setString(4, p.getApellido());
             this.pstm.setString(5, p.getCorreo());
-            this.pstm.setDate(6, Date.valueOf(p.getFecha()));
-            this.pstm.setString(7, p.getLocalizacion());
-            this.pstm.setInt(8, p.getStatus());
+            this.pstm.setString(6, p.getTelefono());
+            this.pstm.setString(7, p.getFecha());
+            this.pstm.setString(8, p.getLocalizacion());
+            this.pstm.setInt(9, p.getStatus());
 
             fila = this.pstm.executeUpdate();
             cerrar();
@@ -78,7 +80,7 @@ import javax.swing.table.DefaultTableModel;
 
         int fila = 0;
         Proveedor p = (Proveedor) obj;
-        this.sqlConsulta = "UPDATE proveedor SET RFC=?, nombre=?, apellido=?, correo=?, fecha=?, localizacion=? WHERE Usuario=? AND status=0";
+        this.sqlConsulta = "UPDATE proveedor SET RFC=?, nombre=?, apellido=?, correo=?, telefono=?, fecha=?, localizacion=? WHERE Usuario=? AND status=0";
 
         abrir();
         try {
@@ -87,9 +89,10 @@ import javax.swing.table.DefaultTableModel;
             this.pstm.setString(2, p.getNombre());
             this.pstm.setString(3, p.getApellido());
             this.pstm.setString(4, p.getCorreo());
-            this.pstm.setDate(5, Date.valueOf(p.getFecha()));
-            this.pstm.setString(6, p.getLocalizacion());
-            this.pstm.setString(7, p.getUsuario());
+            this.pstm.setString(5, p.getTelefono());
+            this.pstm.setString(6, p.getFecha());
+            this.pstm.setString(7, p.getLocalizacion());
+            this.pstm.setString(8, p.getUsuario());
 
             fila = this.pstm.executeUpdate();
             cerrar();
@@ -160,7 +163,8 @@ import javax.swing.table.DefaultTableModel;
                 p.setNombre(registros.getString("nombre"));
                 p.setApellido(registros.getString("apellido"));
                 p.setCorreo(registros.getString("correo"));
-                p.setFecha(registros.getDate("fecha").toString());
+                p.setTelefono(registros.getString("telefono"));
+                p.setFecha(registros.getString("fecha"));
                 p.setLocalizacion(registros.getString("localizacion"));
                 p.setStatus(registros.getInt("status"));
             } else {
@@ -206,6 +210,7 @@ import javax.swing.table.DefaultTableModel;
     public DefaultTableModel mostrarTabla() {
         DefaultTableModel modelo = new DefaultTableModel();
         ProveedorDB db = new ProveedorDB() {};
+        db.crearTabla();
         ResultSet reg = db.todos(0);
 
         try {

@@ -18,27 +18,36 @@ public class Pedido implements imprimible {
     private String fechaPedido;
     private float total;
     private int cantidadProducto;
+    private String usuario;
+    private String folio;
+    private String direccion;
     private int status;
 
     // Constructor vacío
     public Pedido() {
         this.codigo = "";
+        this.folio = "";
+        this.usuario = "";
         this.estadoEnvio = "pendiente";
         this.metodoPago = "";
         this.fechaPedido = "";
         this.total = 0.0f;
         this.cantidadProducto = 0;
+        this.direccion = "";
         this.status = 0;
     }
 
     // Constructor completo
-    public Pedido(String codigo, String estadoEnvio, String metodoPago, String fechaPedido, float total, int cantidadProducto, int status) {
+    public Pedido(String codigo, String estadoEnvio, String metodoPago, String fechaPedido, float total, int cantidadProducto, String direccion, int status, String folio, String usuario) {
         this.codigo = codigo;
         this.estadoEnvio = estadoEnvio;
         this.metodoPago = metodoPago;
         this.fechaPedido = fechaPedido;
         this.total = total;
+        this.folio = folio;
+        this.usuario = usuario;
         this.cantidadProducto = cantidadProducto;
+        this.direccion = direccion;
         this.status = status;
     }
 
@@ -51,6 +60,23 @@ public class Pedido implements imprimible {
         this.idPedido = idPedido;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getFolio() {
+        return folio;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
+    }
+
+    
     public String getCodigo() {
         return codigo;
     }
@@ -98,6 +124,13 @@ public class Pedido implements imprimible {
     public void setCantidadProducto(int cantidadProducto) {
         this.cantidadProducto = cantidadProducto;
     }
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
     public int getStatus() {
         return status;
@@ -117,6 +150,7 @@ public class Pedido implements imprimible {
         System.out.println("Fecha del pedido: " + fechaPedido);
         System.out.println("Total: " + total);
         System.out.println("Cantidad de productos: " + cantidadProducto);
+        System.out.println("Direccion:" + direccion);
         System.out.println("Status: " + status);
     }
 }

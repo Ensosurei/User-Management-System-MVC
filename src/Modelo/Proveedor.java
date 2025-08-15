@@ -17,6 +17,7 @@ public class Proveedor implements imprimible{
     private String nombre;
     private String apellido;
     private String correo;
+    private String telefono;
     private String fecha;
     private String localizacion;
     private int status;
@@ -27,24 +28,33 @@ public class Proveedor implements imprimible{
         this.nombre = "";
         this.apellido = "";
         this.correo = "";
+        this.telefono = "";
         this.fecha = "";
         this.localizacion = "";
         this.status = 0;
     }
 
 
-    public Proveedor(String usuario, String RFC, String nombre, String apellido, String correo, String fecha, String localizacion, int status) {
+    public Proveedor(String usuario, String RFC, String nombre, String apellido, String correo, String fecha, String localizacion, int status, String telefono) {
         this.usuario = usuario;
         this.RFC = RFC;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.fecha = fecha;
+        this.telefono = telefono;
         this.localizacion = localizacion;
         this.status = status;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
 
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
     public int getIdProveedor() {
         return idProveedor;
     }
