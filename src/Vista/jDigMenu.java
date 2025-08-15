@@ -1,19 +1,37 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
+import Vista.jifVistaPedido;
+import Vista.jifVistaProducto;
+import Vista.jifVistaProveedor;
+import Vista.jifVistaUsuario;
+
+import Modelo.Cliente;
+import Modelo.Proveedor;
+import Modelo.Producto;
+import Modelo.Pedido;
+
+import Controlador.ControladorCliente;
+import Controlador.ControladorProveedor;
+import Controlador.ControladorProducto;
+import Controlador.ControladorPedido;
+
 /**
  *
- * @author ensos
+ * @author Alfredo
  */
-public class jDigMenu extends javax.swing.JFrame {
+public class jDigMenu extends javax.swing.JDialog {
 
     /**
      * Creates new form jDigMenu
      */
-    public jDigMenu() {
+    public jDigMenu(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -26,21 +44,188 @@ public class jDigMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel2 = new javax.swing.JPanel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jimSalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jimUsuario = new javax.swing.JMenuItem();
+        jimProveedor = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jimPedido = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jimProducto = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(181, 166, 112));
+        jPanel2.setForeground(new java.awt.Color(181, 166, 112));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/home.png"))); // NOI18N
+        jMenu1.setText("Inicio");
+
+        jimSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
+        jimSalir.setText("Salir");
+        jimSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jimSalir);
+
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/registrar.png"))); // NOI18N
+        jMenu2.setText("Registrarse");
+
+        jimUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/new user.png"))); // NOI18N
+        jimUsuario.setText("Usuario");
+        jimUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jimUsuario);
+
+        jimProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/proveedor.png"))); // NOI18N
+        jimProveedor.setText("Proveedor");
+        jimProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimProveedorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jimProveedor);
+
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
+        jMenu3.setText("Usuarios");
+
+        jimPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/carrito.png"))); // NOI18N
+        jimPedido.setText("Pedido");
+        jimPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimPedidoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jimPedido);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/proveedor.png"))); // NOI18N
+        jMenu4.setText("Proveedores");
+
+        jimProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/producto.png"))); // NOI18N
+        jimProducto.setText("Producto");
+        jimProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimProductoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jimProducto);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jimSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimSalirActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(this, "¿Desea Salir?","Sistema Ventas", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)){
+            System.exit(0);
+
+        }
+    }//GEN-LAST:event_jimSalirActionPerformed
+
+    private void jimUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimUsuarioActionPerformed
+        // TODO add your handling code here:
+        Cliente cliente =new Cliente();
+        jifVistaUsuario jifCli= new jifVistaUsuario();
+        ControladorCliente controlador= new ControladorCliente(cliente, jifCli);
+
+        jifCli.resize(740, 520); //redimensionar
+
+        // Centrar
+        java.awt.Dimension pantallaSize=this.jPanel2.getSize();
+        java.awt.Dimension FrameSize =jifCli.getSize();
+        jifCli.setLocation((pantallaSize.width-FrameSize.width)/2,(pantallaSize.height-FrameSize.height)/2);
+
+        //mostrar
+        this.jPanel2.add(jifCli);
+        jifCli.show();
+    }//GEN-LAST:event_jimUsuarioActionPerformed
+
+    private void jimProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimProveedorActionPerformed
+        // TODO add your handling code here:
+        Proveedor pro =new Proveedor();
+        jifVistaProveedor jifPro= new jifVistaProveedor();
+        ControladorProveedor controlador= new ControladorProveedor(pro, jifPro);
+
+        jifPro.resize(761, 590); //redimensionar
+
+        // Centrar
+
+        java.awt.Dimension pantallaSize=this.jPanel2.getSize();
+        java.awt.Dimension FrameSize =jifPro.getSize();
+        jifPro.setLocation((pantallaSize.width-FrameSize.width)/2,(pantallaSize.height-FrameSize.height)/2);
+
+        //mostrar
+        this.jPanel2.add(jifPro);
+        jifPro.show();
+    }//GEN-LAST:event_jimProveedorActionPerformed
+
+    private void jimPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimPedidoActionPerformed
+        // TODO add your handling code here:
+        Pedido pe =new Pedido();
+        jifVistaPedido jifPe= new jifVistaPedido();
+        ControladorPedido controlador= new ControladorPedido(pe, jifPe);
+
+        jifPe.resize(719,724); //redimensionar
+
+        // Centrar
+        java.awt.Dimension pantallaSize=this.jPanel2.getSize();
+        java.awt.Dimension FrameSize =jifPe.getSize();
+        jifPe.setLocation((pantallaSize.width-FrameSize.width)/2,(pantallaSize.height-FrameSize.height)/2);
+        
+
+        //mostrar
+        this.jPanel2.add(jifPe);
+        jifPe.show();
+    }//GEN-LAST:event_jimPedidoActionPerformed
+
+    private void jimProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimProductoActionPerformed
+        // TODO add your handling code here:
+        Producto producto =new Producto();
+        jifVistaProducto jifProducto= new jifVistaProducto();
+        ControladorProducto controlador= new ControladorProducto(producto, jifProducto);
+
+        jifProducto.resize(728, 632); //redimensionar
+
+        // Centrar
+
+        java.awt.Dimension pantallaSize=this.jPanel2.getSize();
+        java.awt.Dimension FrameSize =jifProducto.getSize();
+        jifProducto.setLocation((pantallaSize.width-FrameSize.width)/2,(pantallaSize.height-FrameSize.height)/2);
+
+        //mostrar
+        this.jPanel2.add(jifProducto);
+        jifProducto.show();
+    }//GEN-LAST:event_jimProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,14 +254,32 @@ public class jDigMenu extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jDigMenu().setVisible(true);
+                jDigMenu dialog = new jDigMenu(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem jimPedido;
+    private javax.swing.JMenuItem jimProducto;
+    private javax.swing.JMenuItem jimProveedor;
+    private javax.swing.JMenuItem jimSalir;
+    private javax.swing.JMenuItem jimUsuario;
     // End of variables declaration//GEN-END:variables
 }

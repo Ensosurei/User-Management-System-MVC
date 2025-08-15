@@ -17,7 +17,7 @@ public abstract class ManejadorDB {
     protected String sqlConsulta;
     
     //CONSTANTES
-    final static String DATABASE="sistema";
+    final static String DATABASE="proyectofinal";
     final static String IP_SERVER="localhost";
     final static String USER="root";
     final static String PASSWORD="1234";
