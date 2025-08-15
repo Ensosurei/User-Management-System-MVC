@@ -158,7 +158,7 @@ public class jDigMenu extends javax.swing.JDialog {
         jifVistaUsuario jifCli= new jifVistaUsuario();
         ControladorCliente controlador= new ControladorCliente(cliente, jifCli);
 
-        jifCli.resize(740, 520); //redimensionar
+        jifCli.resize(740, 564); //redimensionar
 
         // Centrar
         java.awt.Dimension pantallaSize=this.jPanel2.getSize();
