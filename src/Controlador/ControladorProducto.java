@@ -158,7 +158,11 @@ public class ControladorProducto implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
-            if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el folio"+producto.getFolio(),"Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(vista.txtFolio.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el folio","Producto",JOptionPane.ERROR_MESSAGE);
+                vista.txtFolio.requestFocus();
+            }
+            else if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el folio"+producto.getFolio(),"Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(producto);
                 vista.tblProducto.setModel(db.mostrarTabla());
                 this.limpiar();

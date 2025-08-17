@@ -285,7 +285,11 @@ public class ControladorCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
-            if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el usuario "+cliente.getUsuario(),"Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(vista.txtUsuario.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el usuario","Cliente",JOptionPane.ERROR_MESSAGE);
+                vista.txtUsuario.requestFocus();
+            }
+            else if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el usuario "+cliente.getUsuario(),"Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(cliente);
                 vista.tblCliente.setModel(db.mostrarTabla());
                 this.limpiar();

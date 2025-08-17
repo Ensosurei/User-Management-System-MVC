@@ -226,7 +226,12 @@ public class ControladorProveedor implements ActionListener {
         }
 
         if (e.getSource() == vista.btnBorrar) {
-            if (JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el Usuario " + proveedor.getUsuario() + "?",
+            if (vista.txtUsuario.getText().equals("")) {
+                JOptionPane.showMessageDialog(vista, 
+                    "Faltó capturar el usuario",
+                    "Proveedor", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el Usuario " + proveedor.getUsuario() + "?",
                 "Proveedor", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
                 db.desactivar(proveedor);
                 vista.tblProveedor.setModel(db.mostrarTabla());

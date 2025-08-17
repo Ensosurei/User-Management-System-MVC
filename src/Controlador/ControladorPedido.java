@@ -93,7 +93,8 @@ public class ControladorPedido implements ActionListener {
         pedido.setFechaPedido(this.fechaMysql());
     }
 
-    private void calcularTotal() {
+    private boolean calcularTotal() {
+        boolean exito=true;
         try {
             float precio = Float.parseFloat(vista.txtPrecio1.getText());
             int cantidad = Integer.parseInt(vista.txtCantidad.getText());
@@ -101,7 +102,9 @@ public class ControladorPedido implements ActionListener {
             vista.txtTotal.setText(String.valueOf(total));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(vista, "Precio o cantidad inválidos.");
+            return !exito;
         }
+        return exito;
     }
     
     private void mostrarDatosPedido(){
@@ -123,7 +126,7 @@ public class ControladorPedido implements ActionListener {
             vista.jdcFecha.setDate(fecha);
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(vista,"Surgio un error al convertir la fecha","Pedido",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista,"Surgió un error al convertir la fecha","Pedido",JOptionPane.ERROR_MESSAGE);
         }
         
         //mostrar tabla
@@ -162,11 +165,11 @@ public class ControladorPedido implements ActionListener {
     }
     
     private void habilitar(){
-        vista.txtTotal.setEnabled(true);
         vista.txtDireccion.setEnabled(true);
-        vista.txtProducto.setEnabled(true);
         vista.txtCodigo.setEnabled(true);
         vista.txtCantidad.setEnabled(true);
+        vista.btnBorrar.setEnabled(true);
+        vista.btnGuardar.setEnabled(true);
         
         vista.cmbPago.setEnabled(true);
         
@@ -182,6 +185,8 @@ public class ControladorPedido implements ActionListener {
         vista.txtTelefono.setEnabled(!true);
         vista.txtCorreo.setEnabled(!true);
         vista.txtNombres.setEnabled(!true);
+        vista.btnBorrar.setEnabled(!true);
+        vista.btnGuardar.setEnabled(!true);
         
         vista.cmbPago.setEnabled(!true);
     }
@@ -189,7 +194,7 @@ public class ControladorPedido implements ActionListener {
     private boolean cerrarVista(){
         boolean exito=true;
         
-        int opcion= JOptionPane.showConfirmDialog(vista,"¿ Deseas cerra la vista?","Pedido",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int opcion= JOptionPane.showConfirmDialog(vista,"¿Deseas cerra la vista?","Pedido",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (opcion==JOptionPane.YES_OPTION){
             return exito;
@@ -200,20 +205,73 @@ public class ControladorPedido implements ActionListener {
     private boolean validar(){
         boolean exito=true;
         if(vista.txtCodigo.getText().equals("") 
-                || vista.txtTotal.getText().equals("") 
                 || vista.txtDireccion.getText().equals("") 
-                || vista.txtCantidad.getText().equals("")){
+                || vista.txtCantidad.getText().equals("")
+                || vista.txtProducto.getText().equals("")
+                || vista.txtUsuario.getText().equals(""))
+        {
+            return !exito;
+        }
+        try{
+            Integer.parseInt(vista.txtCantidad.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(vista, "No se capturará la cantidad (solo números enteros)");
             return !exito;
         }
         return exito;
     }
     
+    public boolean validarProducto(){
+        boolean exito=true;
+        
+        producto=new Producto();
+        producto.setFolio(vista.txtProducto.getText());
+        producto=(Producto) dbP.consultar(producto);
+            
+        if(producto!=null){
+            if(vista.txtProducto.getText().equals(producto.getFolio()) 
+                    &&  vista.txtPrecio1.getText().equals(String.valueOf(producto.getPrecio()))
+                    && vista.txtNombreProducto.getText().equals(producto.getNombre())){
+                return exito;
+            }
+            else{
+                JOptionPane.showMessageDialog(vista, "Los datos de Producto no coinciden","Producto",JOptionPane.ERROR_MESSAGE);
+                return !exito;
+            }
+        }
+        return !exito;
+    }
     
+    public boolean validarUsuario(){
+        boolean exito=true;
+        
+        cliente=new Cliente();
+        cliente.setUsuario(vista.txtUsuario.getText());
+        cliente=(Cliente) dbC.consultar(cliente);
+            
+        if(cliente!=null){
+            if(vista.txtUsuario.getText().equals(cliente.getUsuario()) 
+                    &&  vista.txtNombres.getText().equals(cliente.getNombre())
+                    && vista.txtCorreo.getText().equals(cliente.getCorreo())
+                    && vista.txtTelefono.getText().equals(cliente.getTelefono())){
+                return exito;
+            }
+            else{
+                JOptionPane.showMessageDialog(vista, "Los datos del Cliente no coinciden","Cliente",JOptionPane.ERROR_MESSAGE);
+                return !exito;
+            }
+        }
+        return !exito;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
-            if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el codigo "+pedido.getCodigo(),"Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(vista.txtCodigo.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el código","Pedido",JOptionPane.ERROR_MESSAGE);
+                vista.txtCodigo.requestFocus();
+            }
+            else if(JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el código? "+pedido.getCodigo(),"Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(pedido);
                 vista.tblPedido.setModel(db.mostrarTabla());
                 this.limpiar();
@@ -239,34 +297,44 @@ public class ControladorPedido implements ActionListener {
             Pedido pe=null;
             
             if(this.validar()==true){
+                if(vista.txtCantidad.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar la cantidad","Pedido",JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    if(this.calcularTotal()==true)vista.txtCantidad.setEnabled(!true);
+                }
                 this.guardarDatos();
+                if(this.validarProducto()==!true){
+                   return;
+                }
+                if(this.validarUsuario()==!true){
+                   return;
+                }
                 if(pedido.getFechaPedido()==null) return;
                 pe=(Pedido) db.consultar(pedido);
                 if(pe==null){
                     if(db.registrar(pedido)>0){
-                        JOptionPane.showMessageDialog(vista,"Se registro el pedido con codigo "+pedido.getCodigo()+" Con exito","Pedido",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(vista,"Se registró el pedido con código "+pedido.getCodigo()+" Con exito","Pedido",JOptionPane.INFORMATION_MESSAGE);
                         vista.tblPedido.setModel(db.mostrarTabla());
                     }else JOptionPane.showMessageDialog(vista,"No fue posible guardarse el pedido","Pedido",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    if(JOptionPane.showConfirmDialog(vista, "El Codigo ya existe "+vista.txtCodigo.getText()+" Deseas actualizar?","Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    if(JOptionPane.showConfirmDialog(vista, "El código ya existe "+vista.txtCodigo.getText()+" ¿Deseas actualizar?","Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                         this.guardarDatos();
                         if(db.actualizar(pedido)>0){
-                            JOptionPane.showMessageDialog(vista, "Se actualizo el pedido con codigo "+pedido.getCodigo()+" con exito","Pedido",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(vista, "Se actualizó el pedido con código "+pedido.getCodigo()+" con éxito","Pedido",JOptionPane.INFORMATION_MESSAGE);
                             vista.tblPedido.setModel(db.mostrarTabla());
                         }else JOptionPane.showMessageDialog(vista, "No fue posible actualizar el pedido","Pedido",JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
                 this.deshabilitar();
                 this.limpiar();
-                
-            }else JOptionPane.showMessageDialog(vista, "Falto capturar informacion");
+            }else JOptionPane.showMessageDialog(vista, "Faltó capturar información");
         }
         
         if(e.getSource()==vista.btnBuscarPedido){
             //validar informacion
             if(vista.txtCodigo.getText().equals("")){
-                JOptionPane.showMessageDialog(vista, "Faltó capturar el codigo","Pedido",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el código","Pedido",JOptionPane.ERROR_MESSAGE);
                 vista.txtCodigo.requestFocus();
             }
             else{
@@ -292,7 +360,7 @@ public class ControladorPedido implements ActionListener {
                     vista.btnBorrar.setEnabled(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(vista, "No se encontro el codigo: " + vista.txtCodigo.getText(),"Pedido",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "No se encontró el código: " + vista.txtCodigo.getText(),"Pedido",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
@@ -311,11 +379,9 @@ public class ControladorPedido implements ActionListener {
                 
                 if(producto!=null){
                     this.mostrarDatosProducto();
-                    vista.btnGuardar.setEnabled(true);
-                    vista.btnBorrar.setEnabled(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(vista, "No se encontro el folio: " + vista.txtProducto.getText(),"Producto",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "No se encontró el folio: " + vista.txtProducto.getText(),"Producto",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
@@ -334,17 +400,15 @@ public class ControladorPedido implements ActionListener {
                 
                 if(cliente!=null){
                     this.mostrarDatosCliente();
-                    vista.btnGuardar.setEnabled(true);
-                    vista.btnBorrar.setEnabled(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(vista, "No se encontro el Usuario: " + vista.txtUsuario.getText(),"Cliente",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "No se encontró el Usuario: " + vista.txtUsuario.getText(),"Cliente",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
         
         if(e.getSource()==vista.btnTotal){
-            this.calcularTotal();
+            
         }
     }
 }
