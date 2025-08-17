@@ -46,15 +46,15 @@ public class jDigMenu extends javax.swing.JDialog {
 
         jPanel2 = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuSalir = new javax.swing.JMenu();
         jimSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jimUsuario = new javax.swing.JMenuItem();
         jimProveedor = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jimPedido = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jimProducto = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jimPedido = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,8 +74,13 @@ public class jDigMenu extends javax.swing.JDialog {
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/home.png"))); // NOI18N
-        jMenu1.setText("Inicio");
+        jMenuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/home.png"))); // NOI18N
+        jMenuSalir.setText("Inicio");
+        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalirActionPerformed(evt);
+            }
+        });
 
         jimSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/exit.png"))); // NOI18N
         jimSalir.setText("Salir");
@@ -84,9 +89,9 @@ public class jDigMenu extends javax.swing.JDialog {
                 jimSalirActionPerformed(evt);
             }
         });
-        jMenu1.add(jimSalir);
+        jMenuSalir.add(jimSalir);
 
-        jMenuBar2.add(jMenu1);
+        jMenuBar2.add(jMenuSalir);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/registrar.png"))); // NOI18N
         jMenu2.setText("Registrarse");
@@ -111,20 +116,6 @@ public class jDigMenu extends javax.swing.JDialog {
 
         jMenuBar2.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
-        jMenu3.setText("Usuarios");
-
-        jimPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/carrito.png"))); // NOI18N
-        jimPedido.setText("Pedido");
-        jimPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jimPedidoActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jimPedido);
-
-        jMenuBar2.add(jMenu3);
-
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/proveedor.png"))); // NOI18N
         jMenu4.setText("Proveedores");
 
@@ -139,18 +130,24 @@ public class jDigMenu extends javax.swing.JDialog {
 
         jMenuBar2.add(jMenu4);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/user.png"))); // NOI18N
+        jMenu3.setText("Usuarios");
+
+        jimPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/carrito.png"))); // NOI18N
+        jimPedido.setText("Pedido");
+        jimPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jimPedidoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jimPedido);
+
+        jMenuBar2.add(jMenu3);
+
         setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jimSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimSalirActionPerformed
-        // TODO add your handling code here:
-        if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(this, "¿Desea Salir?","Sistema Ventas", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)){
-            System.exit(0);
-
-        }
-    }//GEN-LAST:event_jimSalirActionPerformed
 
     private void jimUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimUsuarioActionPerformed
         // TODO add your handling code here:
@@ -195,7 +192,7 @@ public class jDigMenu extends javax.swing.JDialog {
         jifVistaPedido jifPe= new jifVistaPedido();
         ControladorPedido controlador= new ControladorPedido(pe, jifPe);
 
-        jifPe.resize(719,724); //redimensionar
+        jifPe.resize(751, 740); //redimensionar
 
         // Centrar
         java.awt.Dimension pantallaSize=this.jPanel2.getSize();
@@ -226,6 +223,19 @@ public class jDigMenu extends javax.swing.JDialog {
         this.jPanel2.add(jifProducto);
         jifProducto.show();
     }//GEN-LAST:event_jimProductoActionPerformed
+
+    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuSalirActionPerformed
+
+    private void jimSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jimSalirActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.YES_OPTION==JOptionPane.showConfirmDialog(this, "¿Desea Salir?","Sistema Ventas", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)){
+            System.exit(0);
+
+        }
+    }//GEN-LAST:event_jimSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,11 +280,11 @@ public class jDigMenu extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jMenuSalir;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem jimPedido;
     private javax.swing.JMenuItem jimProducto;

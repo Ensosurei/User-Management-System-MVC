@@ -102,7 +102,7 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel6.setText("Telefono");
+        jLabel6.setText("Télefono");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(50, 290, 97, 24);
 
@@ -175,7 +175,7 @@ public class jifVistaUsuario extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel8.setText("Bienvenido Usuario!!");
+        jLabel8.setText("Bienvenido Cliente!!");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(40, 10, 260, 24);
 

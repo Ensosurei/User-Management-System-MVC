@@ -35,7 +35,6 @@ public class ControladorPedido implements ActionListener {
         this.vista = vista;
 
         vista.btnGuardar.addActionListener(this);
-        vista.btnTotal.addActionListener(this);
         vista.btnCancelar.addActionListener(this);
         vista.btnBorrar.addActionListener(this);
         vista.btnCerrar.addActionListener(this);
@@ -405,10 +404,6 @@ public class ControladorPedido implements ActionListener {
                     JOptionPane.showMessageDialog(vista, "No se encontró el Usuario: " + vista.txtUsuario.getText(),"Cliente",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-        }
-        
-        if(e.getSource()==vista.btnTotal){
-            
         }
     }
 }

@@ -100,7 +100,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel4.setText("Titulo de su producto:");
+        jLabel4.setText("Título de su producto:");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(20, 80, 234, 18);
 
@@ -116,7 +116,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel5.setText("Descripcion del producto:");
+        jLabel5.setText("Descripción del producto:");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(280, 20, 276, 20);
 
@@ -138,7 +138,7 @@ public class jifVistaProducto extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel7.setText("Eliga una categoria:");
+        jLabel7.setText("Eliga una categoría:");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(20, 210, 350, 18);
 

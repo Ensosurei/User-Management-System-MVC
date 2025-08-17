@@ -208,7 +208,7 @@ public class jifVistaProveedor extends javax.swing.JInternalFrame {
 
         jLabel10.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(7, 68, 46));
-        jLabel10.setText("Telefono");
+        jLabel10.setText("Télefono");
         jPanel1.add(jLabel10);
         jLabel10.setBounds(60, 290, 97, 24);
 
