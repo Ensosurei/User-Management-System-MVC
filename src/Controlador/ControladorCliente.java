@@ -272,16 +272,6 @@ public class ControladorCliente implements ActionListener {
      vista.jdcFecha.setDate(new java.util.Date());
     }
 
-    private void limpiarCampos() {
-        vista.txtUsuario.setText("");
-        vista.txtNombres.setText("");
-        vista.txtApellido.setText("");
-        vista.txtCorreo.setText("");
-        vista.txtTelefono.setText("");
-        vista.cmbCiudad.setSelectedIndex(0);
-        vista.jdcFecha.setDate(null);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
@@ -312,6 +302,7 @@ public class ControladorCliente implements ActionListener {
         
         if(e.getSource()==vista.btnGuardar){
             
+            cliente=new Cliente();
             Cliente cli=null;
             
             if(this.validar()==true){

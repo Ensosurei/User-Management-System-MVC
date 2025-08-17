@@ -19,14 +19,14 @@ import javax.swing.table.DefaultTableModel;
     public int crearTabla() {
         this.sqlConsulta = "CREATE TABLE  if not exists proveedor (" +
             "idProveedor INT AUTO_INCREMENT PRIMARY KEY," +
-            "Usuario VARCHAR(30)," +
-            "RFC VARCHAR(20) NOT NULL," +
-            "nombre VARCHAR(30) NOT NULL," +
-            "apellido VARCHAR(30) NOT NULL," +
-            "correo VARCHAR(30) NOT NULL," +
-            "telefono VARCHAR(30) NOT NULL," +
+            "Usuario VARCHAR(100)," +
+            "RFC VARCHAR(100) NOT NULL," +
+            "nombre VARCHAR(100) NOT NULL," +
+            "apellido VARCHAR(100) NOT NULL," +
+            "correo VARCHAR(255) NOT NULL," +
+            "telefono VARCHAR(50) NOT NULL," +
             "fecha DATE," +
-            "localizacion VARCHAR(30)," +
+            "localizacion VARCHAR(50)," +
             "status INT DEFAULT 0" +
         ");";
 

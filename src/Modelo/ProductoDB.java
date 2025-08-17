@@ -11,9 +11,6 @@ package Modelo;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
-import java.sql.*;
-import javax.swing.table.DefaultTableModel;
-
 public class ProductoDB extends ManejadorDB {
 
     public ProductoDB() {}
@@ -22,12 +19,12 @@ public class ProductoDB extends ManejadorDB {
     public int crearTabla() {
         this.sqlConsulta = "CREATE TABLE if not exists producto (" +
             "idProducto INT AUTO_INCREMENT PRIMARY KEY," +
-            "folio VARCHAR(30) NOT NULL," +
-            "nombre VARCHAR(30) NOT NULL," +
+            "folio VARCHAR(100) NOT NULL," +
+            "nombre VARCHAR(255) NOT NULL," +
             "precio FLOAT NOT NULL," +
-            "descripcion VARCHAR(50) NOT NULL," +
+            "descripcion VARCHAR(255) NOT NULL," +
             "fecha DATE," +
-            "categoria VARCHAR(30)," +
+            "categoria VARCHAR(100)," +
             "status INT DEFAULT 0" +
         ");";
 
