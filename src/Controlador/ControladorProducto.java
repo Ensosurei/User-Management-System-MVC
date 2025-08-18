@@ -100,7 +100,7 @@ public class ControladorProducto implements ActionListener{
             vista.jdcFecha.setDate(fecha);
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(vista,"Surgio un error al convertir la fecha","Producto",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista,"Surgió un error al convertir la fecha","Producto",JOptionPane.ERROR_MESSAGE);
         }
         
         //mostrar tabla
@@ -110,7 +110,7 @@ public class ControladorProducto implements ActionListener{
     private boolean cerrarVista(){
         boolean exito=true;
         
-        int opcion= JOptionPane.showConfirmDialog(vista,"¿ Deseas cerra la vista?","Producto",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int opcion= JOptionPane.showConfirmDialog(vista,"¿Desea cerrar la vista?","Producto",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (opcion==JOptionPane.YES_OPTION){
             return exito;
@@ -158,7 +158,11 @@ public class ControladorProducto implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
-            if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el folio"+producto.getFolio(),"Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(vista.txtFolio.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el folio","Producto",JOptionPane.ERROR_MESSAGE);
+                vista.txtFolio.requestFocus();
+            }
+            else if(JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el folio "+producto.getFolio()+"?","Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(producto);
                 vista.tblProducto.setModel(db.mostrarTabla());
                 this.limpiar();
@@ -181,6 +185,7 @@ public class ControladorProducto implements ActionListener{
         
         if(e.getSource()==vista.btnGuardar){
             
+            producto=new Producto();
             Producto pro=null;
             
             if(this.validar()==true){
@@ -189,14 +194,14 @@ public class ControladorProducto implements ActionListener{
                 pro=(Producto) db.consultar(producto);
                 if(pro==null){
                     if(db.registrar(producto)>0){
-                        JOptionPane.showMessageDialog(vista,"Se registro el producto con folio "+producto.getFolio()+" Con exito","Producto",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(vista,"Se registró el producto con folio "+producto.getFolio()+" con éxito","Producto",JOptionPane.INFORMATION_MESSAGE);
                         vista.tblProducto.setModel(db.mostrarTabla());
                     }else JOptionPane.showMessageDialog(vista,"No fue posible guardarse el producto","Producto",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    if(JOptionPane.showConfirmDialog(vista, "El folio ya existe "+vista.txtFolio.getText()+" Deseas actualizar?","Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    if(JOptionPane.showConfirmDialog(vista, "El folio "+vista.txtFolio.getText()+"ya existe ¿Deseas actualizar?","Producto",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                         this.guardarDatos();
                         if(db.actualizar(producto)>0){
-                            JOptionPane.showMessageDialog(vista, "Se actualizo el producto con folio "+producto.getFolio()+" con exito","Producto",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(vista, "Se actualizó el producto con folio "+producto.getFolio()+" con exito","Producto",JOptionPane.INFORMATION_MESSAGE);
                             vista.tblProducto.setModel(db.mostrarTabla());
                         }else JOptionPane.showMessageDialog(vista, "No fue posible actualizar el producto","Producto",JOptionPane.ERROR_MESSAGE);
                     }
@@ -205,7 +210,7 @@ public class ControladorProducto implements ActionListener{
                 this.deshabilitar();
                 this.limpiar();
                 
-            }else JOptionPane.showMessageDialog(vista, "Falto capturar informacion");
+            }else JOptionPane.showMessageDialog(vista, "Faltó capturar información");
         }
         
         if(e.getSource()==vista.btnBuscar){
@@ -226,7 +231,7 @@ public class ControladorProducto implements ActionListener{
                     vista.btnBorrar.setEnabled(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(vista, "No se encontro el folio: " + vista.txtFolio.getText(),"Producto",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "No se encontró el folio: " + vista.txtFolio.getText(),"Producto",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }

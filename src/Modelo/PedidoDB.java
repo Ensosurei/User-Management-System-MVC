@@ -19,16 +19,16 @@ public class PedidoDB extends ManejadorDB {
     public int crearTabla() {
         this.sqlConsulta = "CREATE TABLE if not exists pedido (" +
             "idPedido INT AUTO_INCREMENT PRIMARY KEY," +
-            "codigo VARCHAR(30)," +
-            "estado_envio VARCHAR(10) DEFAULT 'pendiente'," +
-            "metodo_pago VARCHAR(20) NOT NULL," +
+            "codigo VARCHAR(100)," +
+            "estado_envio VARCHAR(50) DEFAULT 'pendiente'," +
+            "metodo_pago VARCHAR(50) NOT NULL," +
             "fecha_pedido DATE," +
             "total FLOAT," +
             "cantidadProducto INT," +
-            "direccion varchar(30)," +
+            "direccion varchar(255)," +
             "status INT DEFAULT 0, " +
-            "usuario varchar(30)," +
-            "folio_producto varchar(30)" +    
+            "usuario varchar(100)," +
+            "folio_producto varchar(100)" +    
         ");";
 
         int fila = 0;

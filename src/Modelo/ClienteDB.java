@@ -21,13 +21,13 @@ public class ClienteDB extends ManejadorDB {
     public int crearTabla() {
         this.sqlConsulta = "create table if not exists cliente (" +
             "idCliente INT AUTO_INCREMENT PRIMARY KEY," +
-            "Usuario VARCHAR(30) NOT NULL," +
-            "nombre VARCHAR(30) NOT NULL," +
-            "apellido VARCHAR(30) NOT NULL," +
-            "correo VARCHAR(30) NOT NULL," +
-            "telefono VARCHAR(10) NOT NULL," +
+            "Usuario VARCHAR(100) NOT NULL," +
+            "nombre VARCHAR(100) NOT NULL," +
+            "apellido VARCHAR(100) NOT NULL," +
+            "correo VARCHAR(100) NOT NULL," +
+            "telefono VARCHAR(20) NOT NULL," +
             "fecha DATE," +
-            "ciudad VARCHAR(30)," +
+            "ciudad VARCHAR(100)," +
             "status INT DEFAULT 0" +
         ");";
 

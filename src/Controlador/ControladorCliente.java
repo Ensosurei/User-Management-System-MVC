@@ -52,7 +52,7 @@ public class ControladorCliente implements ActionListener {
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             return formato.format(fechaSeleccionada);
         } else {
-            JOptionPane.showMessageDialog(vista, "Seleccione una fecha válida.");
+            JOptionPane.showMessageDialog(vista, "Seleccione una fecha válida.","Cliente",JOptionPane.INFORMATION_MESSAGE);
             return null;
         }
     }
@@ -211,7 +211,7 @@ public class ControladorCliente implements ActionListener {
             vista.jdcFecha.setDate(fecha);
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(vista,"Surgio un error al convertir la fecha","Cliente",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista,"Surgió un error al convertir la fecha","Cliente",JOptionPane.ERROR_MESSAGE);
         }
         
         //mostrar tabla
@@ -221,7 +221,7 @@ public class ControladorCliente implements ActionListener {
     private boolean cerrarVista(){
         boolean exito=true;
         
-        int opcion= JOptionPane.showConfirmDialog(vista,"¿ Deseas cerra la vista?","Cliente",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int opcion= JOptionPane.showConfirmDialog(vista,"¿Desea cerrar la vista?","Cliente",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (opcion==JOptionPane.YES_OPTION){
             return exito;
@@ -272,20 +272,14 @@ public class ControladorCliente implements ActionListener {
      vista.jdcFecha.setDate(new java.util.Date());
     }
 
-    private void limpiarCampos() {
-        vista.txtUsuario.setText("");
-        vista.txtNombres.setText("");
-        vista.txtApellido.setText("");
-        vista.txtCorreo.setText("");
-        vista.txtTelefono.setText("");
-        vista.cmbCiudad.setSelectedIndex(0);
-        vista.jdcFecha.setDate(null);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnBorrar){
-            if(JOptionPane.showConfirmDialog(vista, "Desea deshabilitar el usuario "+cliente.getUsuario(),"Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            if(vista.txtUsuario.getText().equals("")){
+                JOptionPane.showMessageDialog(vista, "Faltó capturar el usuario","Cliente",JOptionPane.ERROR_MESSAGE);
+                vista.txtUsuario.requestFocus();
+            }
+            else if(JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el usuario"+cliente.getUsuario()+"?","Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(cliente);
                 vista.tblCliente.setModel(db.mostrarTabla());
                 this.limpiar();
@@ -308,6 +302,7 @@ public class ControladorCliente implements ActionListener {
         
         if(e.getSource()==vista.btnGuardar){
             
+            cliente=new Cliente();
             Cliente cli=null;
             
             if(this.validar()==true){
@@ -316,14 +311,14 @@ public class ControladorCliente implements ActionListener {
                 cli=(Cliente) db.consultar(cliente);
                 if(cli==null){
                     if(db.registrar(cliente)>0){
-                        JOptionPane.showMessageDialog(vista,"Se registro el cliente con usuario "+cliente.getUsuario()+" Con exito","Cliente",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(vista,"Se registró el cliente con usuario "+cliente.getUsuario()+" con éxito","Cliente",JOptionPane.INFORMATION_MESSAGE);
                         vista.tblCliente.setModel(db.mostrarTabla());
                     }else JOptionPane.showMessageDialog(vista,"No fue posible guardarse el Cliente","Cliente",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    if(JOptionPane.showConfirmDialog(vista, "El usuario ya existe "+vista.txtUsuario.getText()+" Deseas actualizar?","Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    if(JOptionPane.showConfirmDialog(vista, "El usuario "+vista.txtUsuario.getText()+" ya existe ¿Deseas actualizar?","Cliente",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                         this.guardarDatos();
                         if(db.actualizar(cliente)>0){
-                            JOptionPane.showMessageDialog(vista, "Se actualizo el cliente con usuario "+cliente.getUsuario()+" con exito","Cliente",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(vista, "Se actualizó el cliente con usuario "+cliente.getUsuario()+" con éxito","Cliente",JOptionPane.INFORMATION_MESSAGE);
                             vista.tblCliente.setModel(db.mostrarTabla());
                         }else JOptionPane.showMessageDialog(vista, "No fue posible actualizar el cliente","Cliente",JOptionPane.ERROR_MESSAGE);
                     }
@@ -332,7 +327,7 @@ public class ControladorCliente implements ActionListener {
                 this.deshabilitar();
                 this.limpiar();
                 
-            }else JOptionPane.showMessageDialog(vista, "Falto capturar informacion");
+            }else JOptionPane.showMessageDialog(vista, "Faltó capturar información");
         }
         
         if(e.getSource()==vista.btnBuscar){
@@ -353,7 +348,7 @@ public class ControladorCliente implements ActionListener {
                     vista.btnBorrar.setEnabled(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(vista, "No se encontro el Usuario: " + vista.txtUsuario.getText(),"Cliente",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(vista, "No se encontró el usuario: " + vista.txtUsuario.getText(),"Cliente",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }

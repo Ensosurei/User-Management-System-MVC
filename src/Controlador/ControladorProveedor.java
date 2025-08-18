@@ -164,32 +164,34 @@ public class ControladorProveedor implements ActionListener {
         }
 
         if (e.getSource() == vista.btnGuardar) {
+            proveedor = new Proveedor();
             Proveedor pro = null;
 
             if (validar()) {
                 guardarDatos();
+                if(proveedor.getFecha()==null) return;
                 pro = (Proveedor) db.consultar(proveedor);
 
                 if (pro == null) {
                     if (db.registrar(proveedor) > 0) {
-                        JOptionPane.showMessageDialog(vista, "Se registró el Proveedor con Usuario " + proveedor.getUsuario() + " con éxito", 
+                        JOptionPane.showMessageDialog(vista, "Se registró el proveedor con usuario " + proveedor.getUsuario() + " con éxito", 
                             "Proveedor", JOptionPane.INFORMATION_MESSAGE);
                         vista.tblProveedor.setModel(db.mostrarTabla());
                     } else {
-                        JOptionPane.showMessageDialog(vista, "No fue posible guardar el Proveedor",
+                        JOptionPane.showMessageDialog(vista, "No fue posible guardar el proveedor",
                             "Proveedor", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
-                    int respuesta = JOptionPane.showConfirmDialog(vista, "El Proveedor " + vista.txtUsuario.getText() + " ya existe.\n¿Deseas actualizar?",
+                    int respuesta = JOptionPane.showConfirmDialog(vista, "El proveedor " + vista.txtUsuario.getText() + " ya existe ¿Deseas actualizar?",
                         "Proveedor", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_OPTION) {
                         guardarDatos();
                         if (db.actualizar(proveedor) > 0) {
-                            JOptionPane.showMessageDialog(vista, "Se actualizó el Proveedor con Usuario " + proveedor.getUsuario(),
+                            JOptionPane.showMessageDialog(vista, "Se actualizó el proveedor con usuario " + proveedor.getUsuario(),
                                 "Proveedor", JOptionPane.INFORMATION_MESSAGE);
                             vista.tblProveedor.setModel(db.mostrarTabla());
                         } else {
-                            JOptionPane.showMessageDialog(vista, "No fue posible actualizar el Proveedor",
+                            JOptionPane.showMessageDialog(vista, "No fue posible actualizar el proveedor",
                                 "Proveedor", JOptionPane.ERROR_MESSAGE);
                         }
                     }
@@ -226,7 +228,12 @@ public class ControladorProveedor implements ActionListener {
         }
 
         if (e.getSource() == vista.btnBorrar) {
-            if (JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el Usuario " + proveedor.getUsuario() + "?",
+            if (vista.txtUsuario.getText().equals("")) {
+                JOptionPane.showMessageDialog(vista, 
+                    "Faltó capturar el usuario",
+                    "Proveedor", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el usuario " + proveedor.getUsuario() + "?",
                 "Proveedor", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
                 db.desactivar(proveedor);
                 vista.tblProveedor.setModel(db.mostrarTabla());
