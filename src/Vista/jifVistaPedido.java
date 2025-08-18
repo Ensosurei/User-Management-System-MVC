@@ -169,7 +169,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jLabel11.setBounds(70, 560, 170, 30);
 
         cmbPago.setFont(new java.awt.Font("Britannic Bold", 0, 14)); // NOI18N
-        cmbPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta de credito", "Transferencia", "Pago contra entrega" }));
+        cmbPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta de crédito", "Transferencia", "Pago contra entrega" }));
         cmbPago.setEnabled(false);
         cmbPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,7 +399,7 @@ public class jifVistaPedido extends javax.swing.JInternalFrame {
         jLabel13.setForeground(new java.awt.Color(7, 68, 46));
         jLabel13.setText("Pedido");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(40, 10, 260, 24);
+        jLabel13.setBounds(40, 10, 130, 24);
 
         jLabel14.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(7, 68, 46));

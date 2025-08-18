@@ -81,7 +81,7 @@ public class ControladorPedido implements ActionListener {
         pedido.setFolio(vista.txtProducto.getText());
 
         String metodo = switch (vista.cmbPago.getSelectedIndex()) {
-            case 0 -> "Tarjeta de credito";
+            case 0 -> "Tarjeta de crédito";
             case 1 -> "Transferencia";
             case 2 -> "Pago contra entrega";
             default -> "Sin método";
@@ -113,7 +113,7 @@ public class ControladorPedido implements ActionListener {
         vista.txtTotal.setText(String.valueOf(pedido.getTotal()));
         
         switch(pedido.getMetodoPago()){
-            case "Tarjeta de credito": vista.cmbPago.setSelectedIndex(0); break;
+            case "Tarjeta de crédito": vista.cmbPago.setSelectedIndex(0); break;
             case "Transferencia": vista.cmbPago.setSelectedIndex(1); break;
             case "Pago contra entrega": vista.cmbPago.setSelectedIndex(2); break;
         }
@@ -193,7 +193,7 @@ public class ControladorPedido implements ActionListener {
     private boolean cerrarVista(){
         boolean exito=true;
         
-        int opcion= JOptionPane.showConfirmDialog(vista,"¿Deseas cerra la vista?","Pedido",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int opcion= JOptionPane.showConfirmDialog(vista,"¿Desea cerrar la vista?","Pedido",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (opcion==JOptionPane.YES_OPTION){
             return exito;
@@ -214,7 +214,7 @@ public class ControladorPedido implements ActionListener {
         try{
             Integer.parseInt(vista.txtCantidad.getText());
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(vista, "No se capturará la cantidad (solo números enteros)");
+            JOptionPane.showMessageDialog(vista, "No se capturó la cantidad (solo números enteros)","Pedido",JOptionPane.ERROR_MESSAGE);
             return !exito;
         }
         return exito;
@@ -234,10 +234,11 @@ public class ControladorPedido implements ActionListener {
                 return exito;
             }
             else{
-                JOptionPane.showMessageDialog(vista, "Los datos de Producto no coinciden","Producto",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Los datos del producto no coinciden","Producto",JOptionPane.ERROR_MESSAGE);
                 return !exito;
             }
         }
+        JOptionPane.showMessageDialog(vista, "Folio: "+ vista.txtProducto.getText()+" no existente","Producto",JOptionPane.INFORMATION_MESSAGE);
         return !exito;
     }
     
@@ -256,10 +257,11 @@ public class ControladorPedido implements ActionListener {
                 return exito;
             }
             else{
-                JOptionPane.showMessageDialog(vista, "Los datos del Cliente no coinciden","Cliente",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Los datos del cliente no coinciden","Cliente",JOptionPane.ERROR_MESSAGE);
                 return !exito;
             }
         }
+        JOptionPane.showMessageDialog(vista, "Usuario: "+ vista.txtUsuario.getText()+" no existente","Cliente",JOptionPane.INFORMATION_MESSAGE);
         return !exito;
     }
 
@@ -270,7 +272,7 @@ public class ControladorPedido implements ActionListener {
                 JOptionPane.showMessageDialog(vista, "Faltó capturar el código","Pedido",JOptionPane.ERROR_MESSAGE);
                 vista.txtCodigo.requestFocus();
             }
-            else if(JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el código? "+pedido.getCodigo(),"Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            else if(JOptionPane.showConfirmDialog(vista, "¿Desea deshabilitar el código "+pedido.getCodigo()+"?","Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                 db.desactivar(pedido);
                 vista.tblPedido.setModel(db.mostrarTabla());
                 this.limpiar();
@@ -293,6 +295,7 @@ public class ControladorPedido implements ActionListener {
         
         if(e.getSource()==vista.btnGuardar){
             
+            pedido=new Pedido();
             Pedido pe=null;
             
             if(this.validar()==true){
@@ -313,11 +316,11 @@ public class ControladorPedido implements ActionListener {
                 pe=(Pedido) db.consultar(pedido);
                 if(pe==null){
                     if(db.registrar(pedido)>0){
-                        JOptionPane.showMessageDialog(vista,"Se registró el pedido con código "+pedido.getCodigo()+" Con exito","Pedido",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(vista,"Se registró el pedido con código "+pedido.getCodigo()+" con éxito","Pedido",JOptionPane.INFORMATION_MESSAGE);
                         vista.tblPedido.setModel(db.mostrarTabla());
                     }else JOptionPane.showMessageDialog(vista,"No fue posible guardarse el pedido","Pedido",JOptionPane.ERROR_MESSAGE);
                 }else{
-                    if(JOptionPane.showConfirmDialog(vista, "El código ya existe "+vista.txtCodigo.getText()+" ¿Deseas actualizar?","Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+                    if(JOptionPane.showConfirmDialog(vista, "El código "+vista.txtCodigo.getText()+" ya existe ¿Deseas actualizar?","Pedido",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
                         this.guardarDatos();
                         if(db.actualizar(pedido)>0){
                             JOptionPane.showMessageDialog(vista, "Se actualizó el pedido con código "+pedido.getCodigo()+" con éxito","Pedido",JOptionPane.INFORMATION_MESSAGE);
